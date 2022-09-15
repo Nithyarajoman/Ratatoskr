@@ -101,13 +101,15 @@ The executable `sim` has to be provided with two input XML files namely the netw
 The `sim` can be externally provided with config.xml and network.xml files if the default is not to be used. Also for the multiple simulations with GUI, the `sim` can be provided with different port addresses. The options for these can be obtained by the below command:
 
 ```bash
-sim --help
+./sim --help
 ```
 
 Let's generate this figure. Create a new folder `tutorials` and copy the executable and the required xml configuration files:
 
 ```bash
-cd ~/ratatoskr/bin/tutorials
+cd ~/ratatoskr/bin/
+mkdir tutorials
+cd tutorials
 cp ~/ratatoskr/simulator/sim .
 ```
 
@@ -119,14 +121,15 @@ make
 source source_me.sh
 cd ~/ratatoskr/bin/tutorials
 mkdir config
-cp ../demo/config/network_heterogeneous.xml network.xml #will be read as network config file for plotting.
-python ../../plot_network_client.py
+cp ../demo/config/network_heterogeneous.xml config/network.xml #will be read as network config file for plotting.
+cd ..
+python plot_network_client.py
 ```
 
-The GUI script is started and waits for the simulation to run. The python plotting script connects to the server and once simulation is done, a 3D plot for the network provided is displayed in matplotlib. Let's open a second terminal, in which you run the simulator providing a random GUI port address:
+The GUI script is started and waits for the simulation to run. The python plotting script connects to the server and once simulation is done, a 3D plot for the network provided is displayed in matplotlib. Let's open a second terminal (bin folder), in which you run the simulator providing a random GUI port address:
 
 ```bash
-cp config/config_heterogeneous.xml config/config.xml
+cp demo/config/config_heterogeneous.xml tutorials/config/config.xml
 cd ~/ratatoskr/bin/tutorials
 ./sim --GUI_Port_address 6000     (or ./sim --GUI_Port_address=6000)
 ```
