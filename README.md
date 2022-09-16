@@ -123,10 +123,10 @@ cd ~/ratatoskr/bin/tutorials
 mkdir config
 cp ../demo/config/network_heterogeneous.xml config/network.xml #will be read as network config file for plotting.
 cd ..
-python plot_network_client.py
+python plot_network_client.py 6000
 ```
 
-The GUI script is started and waits for the simulation to run. The python plotting script connects to the server and once simulation is done, a 3D plot for the network provided is displayed in matplotlib. Let's open a second terminal (bin folder), in which you run the simulator providing a random GUI port address:
+The GUI script is started at GUI port address 6000 and waits for the simulation to run. The default value of the port in this python script is same as the default value of port in the ./sim file which is 5000. The python plotting script connects to the server and once simulation is done, a 3D plot for the network provided is displayed in matplotlib. Let's open a second terminal (bin folder), in which you run the simulator providing the same GUI port address:
 
 ```bash
 cp demo/config/config_heterogeneous.xml tutorials/config/config.xml
