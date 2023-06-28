@@ -47,6 +47,9 @@ int sc_main(int arg_num, char *arg_vec[])
     cout << "This is free software, and you are welcome to redistribute it" << endl;
     cout << "under certain conditions. For details see README file." << endl
          << endl;
+
+    cout << "Some modifications there from IDS..." <<endl << endl;
+    
     sc_report_handler::set_verbosity_level(SC_DEBUG);
     sc_report_handler::set_actions(SC_ID_INSTANCE_EXISTS_, SC_DO_NOTHING); //disable renaming warnings
 
@@ -158,6 +161,7 @@ int sc_main(int arg_num, char *arg_vec[])
         cout << " done." << endl;
     }
     globalReport.reportPerformance(cout);
+
     cout << "Random seed " << globalResources.rd_seed << endl;
 
     auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now() - t1);
